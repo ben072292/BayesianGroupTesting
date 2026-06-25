@@ -1,0 +1,88 @@
+#pragma once
+
+#define BGT_MAJOR @BGT_MAJOR@
+#define BGT_MINOR @BGT_MINOR@
+#define BGT_PATCH @BGT_PATCH@
+#define BGT_SUFFIX "@BGT_SUFFIX@"
+#define BGT_VERSION_CODE @BGT_VERSION_CODE@
+#cmakedefine BGT_ENABLE_CUDA 1
+#cmakedefine BGT_ENABLE_NCCL 1
+#cmakedefine BGT_ENABLE_NCCL_GIN 1
+#cmakedefine BGT_ENABLE_SIMD 1
+#cmakedefine BGT_ENABLE_OPENMP 1
+#cmakedefine BGT_ENABLE_NATIVE_CPU 1
+#cmakedefine BGT_ENABLE_FAST_MATH 1
+#cmakedefine BGT_ENABLE_CALIPER_PROFILING 1
+#define BGT_STATE_BITS @BGT_STATE_BITS@
+#define BGT_POSTERIOR_BITS @BGT_POSTERIOR_BITS@
+#define BGT_POSTERIOR_PRECISION "@BGT_POSTERIOR_PRECISION@"
+#define BGT_ACCUMULATOR_BITS @BGT_ACCUMULATOR_BITS@
+#define BGT_ACCUMULATOR_PRECISION "@BGT_ACCUMULATOR_PRECISION@"
+#define BGT_OPTIMIZATION_LEVEL_CODE @BGT_OPTIMIZATION_LEVEL_CODE@
+#define BGT_PROFILE_BACKEND_CODE @BGT_PROFILE_BACKEND_CODE@
+
+namespace bgt
+{
+
+inline constexpr int version_major = BGT_MAJOR;
+inline constexpr int version_minor = BGT_MINOR;
+inline constexpr int version_patch = BGT_PATCH;
+inline constexpr const char *version_suffix = BGT_SUFFIX;
+inline constexpr int version_code = BGT_VERSION_CODE;
+inline constexpr int state_bits = BGT_STATE_BITS;
+inline constexpr int posterior_bits = BGT_POSTERIOR_BITS;
+inline constexpr const char *posterior_precision_name = BGT_POSTERIOR_PRECISION;
+inline constexpr int accumulator_bits = BGT_ACCUMULATOR_BITS;
+inline constexpr const char *accumulator_precision_name = BGT_ACCUMULATOR_PRECISION;
+inline constexpr int optimization_level_code = BGT_OPTIMIZATION_LEVEL_CODE;
+inline constexpr int profile_backend_code = BGT_PROFILE_BACKEND_CODE;
+
+#ifdef BGT_ENABLE_CUDA
+inline constexpr bool cuda_compiled = true;
+#else
+inline constexpr bool cuda_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_NCCL
+inline constexpr bool nccl_compiled = true;
+#else
+inline constexpr bool nccl_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_NCCL_GIN
+inline constexpr bool nccl_gin_compiled = true;
+#else
+inline constexpr bool nccl_gin_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_SIMD
+inline constexpr bool simd_compiled = true;
+#else
+inline constexpr bool simd_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_OPENMP
+inline constexpr bool openmp_compiled = true;
+#else
+inline constexpr bool openmp_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_NATIVE_CPU
+inline constexpr bool native_cpu_compiled = true;
+#else
+inline constexpr bool native_cpu_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_FAST_MATH
+inline constexpr bool fast_math_compiled = true;
+#else
+inline constexpr bool fast_math_compiled = false;
+#endif
+
+#ifdef BGT_ENABLE_CALIPER_PROFILING
+inline constexpr bool caliper_profiling_compiled = true;
+#else
+inline constexpr bool caliper_profiling_compiled = false;
+#endif
+
+} // namespace bgt

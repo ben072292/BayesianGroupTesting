@@ -1,0 +1,34 @@
+[build-system]
+requires = ["scikit-build-core>=0.10", "nanobind>=2.0"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "bayesian-group-testing"
+version = "0.0.1"
+description = "Modern C++/parallel/CUDA Bayesian group testing runtime with Python bindings"
+requires-python = ">=3.9"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest", "numpy"]
+
+[tool.scikit-build]
+cmake.source-dir = "."
+wheel.packages = ["python/bayesian_group_testing"]
+
+[tool.scikit-build.cmake.define]
+BGT_BUILD_PYTHON = "ON"
+BGT_BUILD_EXAMPLES = "OFF"
+BUILD_TESTING = "OFF"
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+markers = [
+    "unit: fast tests for Python API shape and value objects",
+    "integration: tests that call the native runtime through Python",
+    "e2e: installed-package and command-line behavior",
+    "regression: fixed numerical cases that should not drift",
+    "parallel: parallel execution tests",
+    "cuda: CUDA-provider tests",
+    "slow: long-running tests",
+]

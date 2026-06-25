@@ -1,0 +1,79 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+
+# CMake and native builds
+build/
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_deps/
+
+# Generated public headers
+include/bgt.h
+include/bmgt.h
+include/bgt/config.hpp
+
+# Native objects and libraries
+*.o
+*.obj
+*.a
+*.la
+*.lo
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+
+# CUDA and profiler artifacts
+*.ptx
+*.cubin
+*.fatbin
+*.nsys-rep
+*.qdrep
+*.nvprof
+*.profraw
+*.profdata
+
+# Benchmark and experiment output
+*.csv
+*.tsv
+*.log
+output/
+outputs/
+results/
+tmp/
+
+# Python helper environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+wheelhouse/
+uv.lock
